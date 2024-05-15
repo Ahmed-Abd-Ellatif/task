@@ -1,0 +1,21 @@
+<h2 class="mt-5">All Users</h2>
+<table class="table table-bordered my-5">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Address</th>
+      <th scope="col">RegisterDate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.Name }}</td>
+      <td>{{ user.Email }}</td>
+      <td>{{ user.Phone }}</td>
+      <td [title]="user.Address">{{ user.Address | slice : 0 : 20 }}</td>
+      <td>{{ user.RegisterDate | date }}</td>
+    </tr>
+  </tbody>
+</table>

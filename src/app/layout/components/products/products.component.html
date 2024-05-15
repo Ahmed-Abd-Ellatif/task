@@ -1,0 +1,15 @@
+<div class="All-products">
+  <h2 class="mt-5">All Products</h2>
+  <div class="products my-5">
+    <div class="product-card" *ngFor="let product of products">
+      <div class="product-img">
+        <img [src]="product.ProductImg" alt="" />
+      </div>
+      <div class="products-details">
+        <h3>{{ product.ProductName }}</h3>
+        <h4>Price : {{ product.ProductPrice | currency }}</h4>
+        <span>Available : {{ product.AvailablePieces }} Pieces</span>
+      </div>
+    </div>
+  </div>
+</div>

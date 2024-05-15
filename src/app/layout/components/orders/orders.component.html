@@ -1,0 +1,29 @@
+<div class="all-orders mt-5">
+  <h2 class="mb-5">All Orders</h2>
+  <button class="btn btn-primary mb-3">Add Order</button>
+  <div class="orders">
+    <div
+      class="order-card"
+      *ngFor="let order of orders"
+      (click)="getorderId(order.OrderId)"
+    >
+      <div class="order-card-head">
+        <p>ID : {{ order.UserId }}</p>
+        <p>Date : {{ order.OrderDate | date : "YYYY-mm-dd" }}</p>
+      </div>
+      <div class="order-card-body">
+        <div class="products" *ngFor="let product of order.Products">
+          <p>ProductId : {{ product.ProductId }}</p>
+          <p>Quantity : {{ product.Quantity }}</p>
+        </div>
+      </div>
+      <p class="pay">Payment Type : {{ order.PaymentType }}</p>
+    </div>
+  </div>
+</div>
+
+<div class="popup">
+  <div class="overlay">
+    <div class="form"></div>
+  </div>
+</div>
