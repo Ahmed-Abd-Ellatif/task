@@ -15,8 +15,8 @@ export class OrdersComponent implements OnInit {
       this.orders = res;
     });
   }
-  getorderId(OrderId: any) {
-    this._router.navigate(['/orders/order', OrderId]);
+  getorderId(order: any) {
+    this._router.navigate(['/orders/order', order.OrderId,{data:JSON.stringify(order)}]);
   }
   ngOnInit(): void {
     this.getOrders();

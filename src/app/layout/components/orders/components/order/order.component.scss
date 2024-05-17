@@ -1,0 +1,31 @@
+.all-orders {
+    .orders {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+      gap: 20px;
+      .order-card {
+        padding: 20px;
+        border-radius: 10px;
+        // border: 1px solid #000;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        margin-bottom: 10px;
+        .order-card-head {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+        .order-card-body {
+          .products {
+            padding: 20px;
+            border: 1px solid #000;
+            border-radius: 5px;
+            margin-bottom: 10px;
+          }
+        }
+        .pay {
+          color: green;
+        }
+      }
+    }
+  }
+  

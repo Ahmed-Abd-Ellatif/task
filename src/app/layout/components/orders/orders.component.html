@@ -5,7 +5,7 @@
     <div
       class="order-card"
       *ngFor="let order of orders"
-      (click)="getorderId(order.OrderId)"
+      
     >
       <div class="order-card-head">
         <p>ID : {{ order.UserId }}</p>
@@ -18,12 +18,21 @@
         </div>
       </div>
       <p class="pay">Payment Type : {{ order.PaymentType }}</p>
+      <button (click)="getorderId(order)" class="btn btn-info"><i class="fa-regular fa-eye"></i> Show Order</button>
     </div>
   </div>
 </div>
 
 <div class="popup">
   <div class="overlay">
-    <div class="form"></div>
+    <div class="form">
+      <label for="">111</label>
+      <input type="text">
+
+<div class="mt-2">
+  <button class="btn btn-success me-2">Save</button>
+  <button class="btn btn-danger">cancle</button>
+</div>
+    </div>
   </div>
 </div>

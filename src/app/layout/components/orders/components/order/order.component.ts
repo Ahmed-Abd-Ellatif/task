@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OrdersService } from '../../services/orders.service';
 import { ActivatedRoute } from '@angular/router';
-import { filter, map } from 'rxjs';
+
 
 @Component({
   selector: 'app-order',
@@ -13,24 +13,15 @@ export class OrderComponent implements OnInit {
     private _ordersService: OrdersService,
     private _route: ActivatedRoute
   ) {}
-  // orderId: any;
-  // getOrderId() {
-  //   this._ordersService
-  //     .getOrders()
-  //     .pipe(
-  //       map((order: any, index: number) => {
-  //         order[index].OrderId == this.orderId;
-  //       })
-  //     )
-  //     .subscribe((res) => {
-  //       console.log('RES', res);
-  //     });
-  // }
+  orderId: any;
+  order:any
+  getOrderId() {
+    this._route.params.subscribe((res) => {
+      this.orderId = res['id'];
+      this.order = JSON.parse(res['data'])
+    });
+  }
   ngOnInit(): void {
-    // this._route.params.subscribe((res) => {
-    //   this.orderId = res['id'];
-    // });
-    // console.log('ORDERID', this.orderId);
-    // this.getOrderId();
+    this.getOrderId();
   }
 }

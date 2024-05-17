@@ -7,7 +7,9 @@
     .product-card {
       cursor: pointer;
       background-color: #fff;
-      border: 1px solid #000;
+      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+      // border: 1px solid #000;
       border-radius: 10px;
       overflow: hidden;
 
