@@ -29,3 +29,11 @@
     }
   }
   
+
+  @media(max-width:500px){
+    .all-orders {
+      .orders {
+        grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+      }
+    }
+  }
