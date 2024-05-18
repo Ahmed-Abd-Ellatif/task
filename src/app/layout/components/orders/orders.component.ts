@@ -9,16 +9,23 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./orders.component.scss'],
 })
 export class OrdersComponent implements OnInit {
-  orders: any[]=[];
-  showOrderPopup:boolean=false
-  constructor(private _orderService: OrdersService, private _router: Router,private _fb:FormBuilder) {}
+  orders: any[] = [];
+  orderIndex: any
+  showOrderPopup: boolean = false
+  isEditMode: boolean = false
+  constructor(private _orderService: OrdersService, private _router: Router, private _fb: FormBuilder) { }
 
   orderForm = this._fb.group({
-    OrderId: [12330],
-      OrderDate: [new Date()],
-      UserId: ["8475-2345-2312"],
-      Products: [[{ "ProductId": 50, "Quantity": 50 }]],
-      PaymentType: ["online"]
+    OrderId: [],
+    OrderDate: [new Date()],
+    UserId: [],
+    Products: this._fb.group({
+
+      ProductId: [],
+      Quantity: []
+
+    }),
+    PaymentType: []
   })
   getOrders() {
     this._orderService.getOrders().subscribe((res) => {
@@ -26,13 +33,41 @@ export class OrdersComponent implements OnInit {
     });
   }
   getorderId(order: any) {
-    this._router.navigate(['/orders/order', order.OrderId,{data:JSON.stringify(order)}]);
+    this._router.navigate(['/orders/order', order.OrderId, { data: JSON.stringify(order) }]);
   }
+
+  addOrder() {
+    const products: any[] = []
+    products.push(this.orderForm.value.Products)
+    const obj = {
+      OrderId: this.orderForm.value.OrderId,
+      UserId: this.orderForm.value.UserId,
+      Products: products,
+      PaymentType: this.orderForm.value.PaymentType,
+    }
+    this.showOrderPopup = false
+    if (!this.isEditMode) {
+      this.orders.unshift(obj)
+    }
+    else if (this.isEditMode) {
+      this.orders.splice(this.orderIndex, 1, obj)
+    }
+  }
+
+  editProductQuantity(order: any) {
+    this.orderIndex = this.orders.indexOf(order)
+    this.orderForm.reset()
+    this.isEditMode = true
+    this.showOrderPopup = true
+    this.orderForm.patchValue({
+      OrderId: order.OrderId,
+      UserId: order.UserId,
+      Products: order.Products[0],
+      PaymentType: order.PaymentType,
+    })
+  }
+ 
   ngOnInit(): void {
     this.getOrders();
   }
-  addOrder(){
-    console.log(this.orderForm.value)
-this.orders.unshift(this.orderForm.value)
- }
 }

@@ -1,6 +1,6 @@
 <div class="all-orders mt-5">
   <h2 class="mb-5">All Orders</h2>
-  <button class="btn btn-primary mb-3" (click)="showOrderPopup = true">Add Order</button>
+  <button class="btn btn-primary mb-3" (click)="showOrderPopup = true;isEditMode=false">Add Order</button>
   <div class="orders">
     <div
       class="order-card"
@@ -9,7 +9,7 @@
     >
       <div class="order-card-head">
         <p>ID : {{ order.UserId }}</p>
-        <p>Date : {{ order.OrderDate | date : "YYYY-mm-dd" }}</p>
+        <!-- <p>Date : {{ order.OrderDate | date }}</p> -->
       </div>
       <div class="order-card-body">
         <div class="products" *ngFor="let product of order.Products">
@@ -19,6 +19,7 @@
       </div>
       <p class="pay">Payment Type : {{ order.PaymentType }}</p>
       <button (click)="getorderId(order)" class="btn btn-info"><i class="fa-regular fa-eye"></i> Show Order</button>
+      <button (click)="editProductQuantity(order)" class="btn btn-success ms-2"><i class="fa-regular fa-pen-to-square"></i> Edit</button>
     </div>
   </div>
 </div>
@@ -26,11 +27,27 @@
 <div class="popup" *ngIf="showOrderPopup" >
   <div class="overlay" >
     <div class="form" [formGroup]="orderForm" >
-      <label for="">111</label>
-      <input type="text">
+
+      <label >Order Id</label>
+      <input type="text"  formControlName="OrderId">
+      <label >User Id</label>
+      <input type="text"  formControlName="UserId">
+      <!-- ************************ -->
+      <div formGroupName="Products">
+        <label >Products</label>
+        <input type="text" formControlName="ProductId">
+        <input type="text" formControlName="Quantity">
+      </div>
+      <!-- ************************ -->
+      <label >Payment Type</label>
+      <select  formControlName="PaymentType">
+        <option value="online">Online</option>
+        <option value="cash">Cash</option>
+      </select>
 
 <div class="mt-2">
-  <button class="btn btn-success me-2" type="submit" (click)="addOrder()">Save</button>
+  <button class="btn btn-success me-2" type="submit" (click)="addOrder()" *ngIf="!isEditMode">Save</button>
+  <button class="btn btn-success me-2" type="submit" (click)="addOrder()"  *ngIf="isEditMode">Edit</button>
   <button class="btn btn-danger" (click)="showOrderPopup = false">cancle</button>
 </div>
     </div>
