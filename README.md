@@ -1,27 +1,45 @@
 # AsgatechTask
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.5.
+ **Created 4 Pages** 
+1- Products Page
 
-## Development server
+> ![products Page](https://github.com/Ahmed-Abd-Ellatif/task/assets/61418344/b9e29986-d3cd-4809-9a80-db1b368bc905)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+2- Orders Page
 
-## Code scaffolding
+> ![orders Page](https://github.com/Ahmed-Abd-Ellatif/task/assets/61418344/d52b93e6-2055-4a48-b0c6-cda9c3719ddd)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+3- Order Details Pages
 
-## Build
+> ![rder Details](https://github.com/Ahmed-Abd-Ellatif/task/assets/61418344/87270327-0401-4bbd-8e29-4762a9ddc64a)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+4- Users Pages
 
-## Running unit tests
+> ![users Pages](https://github.com/Ahmed-Abd-Ellatif/task/assets/61418344/80f6c9e7-a16a-482b-99a7-7e6c8afaa062)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+ **Using services (HttpClient) to handle the following 5 methods:**
 
-## Running end-to-end tests
+> ![Capture](https://github.com/Ahmed-Abd-Ellatif/task/assets/61418344/e1ef8dd1-6097-4450-af21-64dfc94e93b8)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+1 - getProducts 
 
-## Further help
+> ![method1](https://github.com/Ahmed-Abd-Ellatif/task/assets/61418344/72379fb1-0f94-4bd5-b299-58e4729a03f9)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+2- getOrders 
+
+> ![2](https://github.com/Ahmed-Abd-Ellatif/task/assets/61418344/38753cdf-83e0-48ac-9ced-4fc51e5d40cf)
+
+3- getOrder
+
+> ![3](https://github.com/Ahmed-Abd-Ellatif/task/assets/61418344/05a3d170-fa25-4773-aaf5-93a16c44f8bf)
+
+4- addOrder & editProductQuantity
+
+> ![4](https://github.com/Ahmed-Abd-Ellatif/task/assets/61418344/30ab484e-5a0a-4d25-acff-0753f352c15e)
+
+
+**Using  Routing & Lazy loading Modules**
+
+> ![Capture](https://github.com/Ahmed-Abd-Ellatif/task/assets/61418344/5e66f592-be0d-410c-b14c-3447a1a198e3)
+
+**Using Scss and Angular 16**
